@@ -1,0 +1,104 @@
+<!-- 
+    1. Сделать собственные примеры методов применяемых для массивов.
+
+    2. Создать функцию для нахождения минимального и максимального элемента массива getMinAndMax(array).
+     Результат должен выводиться в консоль.
+
+    3. Определить элементы массива и вывести их значения, индексы которых лежит в указанном пределе. Предел вводит пользователь.
+
+    4. Отсортировать массив на 10 чисел в порядке возростания. Значения принимаются от пользователя. Сортировка осушествляется методом sort().
+    
+    5. Создать программу, выполняющую вставку элемента в массив после элемента, значение которого укажет пользователь.
+
+    6. Необходимо получить предпоследний элемент из массива month и вывести его на экран. 
+    var month = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+
+    7. Создать два произвольных массива: один массив - любимая спортивная команда / модели автомобилей / города, во втором - количество игроков в команде / объем двигателя / количество жителей в городе. Объединить данные из двух массивов и вывести их в одну строку.  -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>JS 3</title>
+      <script>
+        //Завдання 1
+        //Метод indexOf()
+        const arr = ["Anna", "Alice", "John", "Mark"];
+        const foundIndex = arr.indexOf("Alice");
+        console.log(foundIndex);
+        //Метод push()
+        let arr2 = [2, 6, 4, 8];
+        const pushed = arr2.push(3);
+        console.log(arr2);
+        //Метод slice()
+        let arr3 = [3, 6, 5, 2, 1, 8];
+        const sliced = arr3.slice(2, 5);
+        console.log(sliced);
+        //Метод includes()
+        const names = ['Маша', 'Даша', 'Саша'];
+        const includes = names.includes('Саша');
+
+        //Завдання 2
+        var array = [1, 5, 6, 2, 3];
+        var max = Math.max(...array);
+        var min = Math.min(...array);
+        console.log(min);
+        console.log(max);
+
+        //Завдання 3
+        var numbers = [2, 7, 4, 9, 1, 6, 0, 10];
+        var first = +prompt("Ведіть початковий індекс в межах від 0 до 7");
+        var last = +prompt("Ведіть кінцевий індекс в межах від 0 до 7");
+        var numbers_array = numbers.slice(first, last);
+        console.log("Ви обрали такий діапазон масиву: " + numbers_array);
+
+       //Завдання 4
+       var array4 = [];
+       var number = +prompt("Введіть 10 чисел");
+       array4.push(number);
+       array4.sort(function(a, b){return a - b});
+       console.log("Після сортування в порядку зростання:");
+       console.log(array4); 
+
+       //Завдання 5
+       let array5 = [65, 3, 87, 12, 50, 23];
+       var first = prompt("Введіть новий елемент");
+       while (first === null || first === "") {
+       first = prompt("Введіть елемент знову");
+       }
+       var second = prompt(`Введіть число від 0 до ${array5.length - 1}`);
+       while (second === "" || second === null) {
+       second = prompt(`Введіть число від 0 до ${array5.length - 1}`);
+       }
+       second = +second;
+       while (Number.isNaN(second) || second > array5.length - 1 || second < 0) {
+       second = +prompt(`Введіть число від 0 до ${array5.length - 1}`);
+       }
+
+       array.splice(second, 0, first);
+       console.log(array5);
+
+       //Завдання 6
+       var month = ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];  
+       document.write(`Останній елемент масиву: ${month[month.length - 2]}`);
+       document.write("<br>");
+       //Завдання 7
+       var classes = ["7-A", "9-Б", "5-В", "6-А"];
+       var pupils = [25, 29, 31, 26];
+       var newArray = [];
+       for (let i = 0; i < classes.length; i++) {
+       if (classes.length != pupils.length) {
+      console.log("Довжини масивів відрізняються");
+      break;
+      }
+      newArray.push(classes[i]);
+      newArray.push(pupils[i]);
+      }
+      console.log(newArray);
+      document.write(newArray.join(" * "));
+    </script>
+    </head>
+    <body>
+    </body>
+    </html>
